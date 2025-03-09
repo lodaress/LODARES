@@ -1,0 +1,208 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>--</title>
+    <style>
+        @property --k {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+html, body {
+  display: grid;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #000;
+}
+
+svg[height="0"] {
+  position: absolute;
+}
+
+h1 {
+  /* no pseudo needed */
+  --k: 0;
+  place-self: center;
+  background: linear-gradient(90deg, hsl(calc(var(--k)*1turn), 95%, 65%), hsl(calc(var(--k)*1turn + 90deg), 95%, 65%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font: 900 clamp(.875em, 7.25vw, 5em) arial black, sans-serif;
+  filter: url(#f);
+  text-align: center;
+  text-transform: uppercase;
+  /* needs support for animating custom properties */
+  /* Firefox not quite there yet, but it's coming */
+  animation: k 4s linear infinite;
+}
+
+@keyframes k {
+  to {
+    --k: 1 ;
+  }
+}
+
+    </style>
+</head>
+<body>
+    
+<svg width="0" height="0">
+    <filter id="f" x="-50%" y="-200%" width="200%" height="500%">
+      <feGaussianBlur stdDeviation="35"></feGaussianBlur>
+      <feColorMatrix type="saturate" values="1.3"></feColorMatrix>
+      <feComposite in="SourceGraphic"></feComposite>
+    </filter>
+  </svg>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>      
+
+
+
+<img src="https://i.hizliresim.com/7l5tibd.gif" width="370" height="250" alt="worzly">
+
+
+
+
+
+
+<div align="center">
+<font color="red" >
+
+<b><h1>Tg @lodaress<h1><b>
+<!DOCTYPE html>
+<html lang="tr">
+
+
+    
+    <title>IP Sorgu</title>
+</head>
+<body>
+<form id="ip-form">
+    <div align="center">
+<font color="red" >
+    <input type="text" id="ip-input" name="ip-input">
+    <button type="submit">Sorgula</button>
+</form>
+
+<div align="center">
+<font color="red" >
+
+<div id="result"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#ip-form').submit(function(event) {
+            event.preventDefault();
+            var ip_address = $('#ip-input').val();
+            $.ajax({
+                url: 'https://ipapi.co/' + ip_address + '/json/',
+                dataType: 'json',
+                success: function(data) {
+                    $('#result').html(`
+              <p>IP Adresi: ${data.ip}<br>
+              Sehir: ${data.city}<br>
+              Bolge: ${data.region}<br>
+              Ulke: ${data.country_name}<br>
+              internet Saglayicisi: ${data.org}<br>
+              Cografi Konum: ${data.latitude}, ${data.longitude}</p>
+            `);
+                },
+                error: function() {
+                    $('#result').html('<p>Bilgi alınamadı.</p>');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <title>WorzLy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="WorzLy IP Sorgu">
+    <meta property="og:description" content="Bu Site İle IP Sorgu Yapabilmek Artık Çok Güvenilir Ve Kolay">
+    <style>
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input { width: 100%; }
+
+button { cursor: pointer; }
+
+ion-icon { pointer-events: none; }
+
+address { font-style: normal; }
+
+html {
+  font-family: var(--ff-poppins);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: grey(--raisin-black-3);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
